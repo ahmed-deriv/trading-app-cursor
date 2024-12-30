@@ -1,0 +1,99 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.container {
+  min-height: 100vh;
+  padding: $spacing-lg;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  @media (prefers-color-scheme: dark) {
+    filter: invert(1);
+  }
+}
+
+.instructions {
+  list-style: decimal inside;
+  text-align: center;
+  font-family: monospace;
+
+  @media (min-width: 768px) {
+    text-align: left;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.code {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+
+  @media (prefers-color-scheme: dark) {
+    background: rgba(255, 255, 255, 0.06);
+  }
+}
+
+.buttonGroup {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.primaryButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--foreground);
+  color: var(--background);
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background: #383838;
+
+    @media (prefers-color-scheme: dark) {
+      background: #ccc;
+    }
+  }
+}
+
+.secondaryButton {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.2s;
+
+  @media (prefers-color-scheme: dark) {
+    border-color: rgba(255, 255, 255, 0.145);
+  }
+
+  &:hover {
+    background: #f2f2f2;
+    border-color: transparent;
+
+    @media (prefers-color-scheme: dark) {
+      background: #1a1a1a;
+    }
+  }
+}
